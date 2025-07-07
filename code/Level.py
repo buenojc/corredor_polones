@@ -1,7 +1,6 @@
 import pygame.event
 from pygame import Surface
 
-from assets.Player import Player
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
@@ -22,7 +21,6 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
-
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         pygame.quit()

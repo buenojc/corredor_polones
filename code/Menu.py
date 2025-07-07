@@ -16,8 +16,8 @@ class Menu:
         option_selected = 0
         while True:
             self.window.blit(self.surf, self.rect)
-            screen_text(self.window, 60, 'CORREDOR', C_WHITE, ((WIN_WIDTH / 2), 40))
-            screen_text(self.window, 60, 'POLONÊS', C_RED, ((WIN_WIDTH / 2), 100))
+            screen_text(self.window, 60, 'RUNNING', C_WHITE, ((WIN_WIDTH / 2), 40))
+            screen_text(self.window, 60, 'KNIGHT', C_RED, ((WIN_WIDTH / 2), 100))
 
             for i in range(len(MENU_OPTIONS)):
                 if i == option_selected:

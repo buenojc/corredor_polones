@@ -1,4 +1,4 @@
-from assets.Player import Player
+from code.Player import Player
 from code.Background import Background
 from code.Const import WIN_WIDTH, WIN_HEIGHT
 
@@ -9,7 +9,7 @@ class EntityFactory:
         match entity_name:
             case 'LevelBg':
                 list_bg = []
-                for i in range(9):
+                for i in range(4):
                     list_bg.append(Background(f'LevelBg{i}', (0,0)))
                     list_bg.append(Background(f'LevelBg{i}', (WIN_WIDTH, 0)))
                 return list_bg

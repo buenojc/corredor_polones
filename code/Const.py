@@ -2,8 +2,8 @@
 ENTITY_SPEED = {
     'LevelBg0': 0,
     'LevelBg1': 1,
-    'LevelBg2': 1,
-    'LevelBg3': 2,
+    'LevelBg2': 2,
+    'LevelBg3': 3,
     'LevelBg4': 3,
     'LevelBg5': 3,
     'LevelBg6': 4,
@@ -30,6 +30,7 @@ C_YELLOW = (255, 255, 0)
 C_GREEN = (0, 128, 0)
 C_CYAN = (0, 128, 128)
 C_RED = (120, 6, 6)
+C_BLACK = (0,0,0)
 
 # W
 WIN_WIDTH = 576
