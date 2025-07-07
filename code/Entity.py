@@ -2,6 +2,8 @@ from abc import abstractmethod, ABC
 
 import pygame.image
 
+from code.Const import ENTITY_SPEED
+
 
 class Entity(ABC):
     def __init__(self, name: str, position: tuple):
@@ -13,4 +15,4 @@ class Entity(ABC):
 
     @abstractmethod
     def move(self):
-        pass
+        self.rect.centerx -= ENTITY_SPEED[self.name]
