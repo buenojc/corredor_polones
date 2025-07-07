@@ -1,3 +1,16 @@
+# E
+ENTITY_SPEED = {
+    'LevelBg0': 0,
+    'LevelBg1': 1,
+    'LevelBg2': 1,
+    'LevelBg3': 2,
+    'LevelBg4': 3,
+    'LevelBg5': 3,
+    'LevelBg6': 4,
+    'LevelBg7': 4,
+    'LevelBg8': 5,
+}
+
 # G
 GAME_FONT = 'Rockwell Condensed'
 
@@ -10,7 +23,7 @@ MENU_OPTIONS = (
 
 # C
 C_LIGHT_BLUE = (180, 180, 200)
-C_BRIGHT_RED = (200,50,50)
+C_BRIGHT_RED = (200, 50, 50)
 C_ORANGE = (255, 128, 0)
 C_WHITE = (255, 255, 255)
 C_YELLOW = (255, 255, 0)
