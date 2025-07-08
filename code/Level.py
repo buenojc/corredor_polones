@@ -23,6 +23,9 @@ class Level:
         pygame.time.set_timer(EVENT_OBSTACLE, SPAWN_TIME)
 
     def run(self):
+        # Load and play music
+        pygame.mixer.music.load('../assets/LevelSd.mp3')
+        pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
@@ -34,6 +37,10 @@ class Level:
                         pygame.quit()
                         quit()
 
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            return
+
                     if event.type == EVENT_OBSTACLE:
                         choice = random.choice(('Obstacle0', 'Obstacle1', 'Obstacle2'))
                         self.entity_list.append(EntityFactory.get_entity(choice))
@@ -44,10 +51,10 @@ class Level:
                         found_player = True
 
                 if not found_player:
-                    return False
+                    return self.player.score
 
             screen_text(self.window, 30, f'Health: {self.player.health}', C_ORANGE, (60, 30))
-            screen_text(self.window, 30, f'Points: {self.player.score}', C_YELLOW, (60, 60))
+            screen_text(self.window, 30, f'Points: {self.player.score}', C_YELLOW, ((WIN_WIDTH - 80), 30))
 
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(self.entity_list, self.player)

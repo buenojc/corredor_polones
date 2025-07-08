@@ -13,6 +13,10 @@ class Menu:
 
 
     def run(self):
+        # Load and play music
+        pygame.mixer.music.load('../assets/MenuSd.mp3')
+        pygame.mixer_music.play(-1)
+
         option_selected = 0
         while True:
             self.window.blit(self.surf, self.rect)
