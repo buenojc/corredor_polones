@@ -1,32 +1,43 @@
 import pygame.key
 from pygame import K_SPACE
 
-from code.Const import WIN_HEIGHT
+from code.Const import WIN_HEIGHT, ENTITY_HEALTH, ENTITY_DAMAGE
 from code.Entity import Entity
 
 
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
+
+        # Load all player sprites
         self.sprites = []
         for i in range(6):
             self.sprites.append(pygame.image.load(f'../assets/Player{i}.png').convert_alpha())
         self.surf = self.sprites[1]
         self.rect = self.surf.get_rect(left=position[0], top=position[1])
+        self.score = 0
+
+        # Jump Gravity
         self.velocity_y = 0
         self.gravity = 0.8
-        self.jump_strength = -15
+        self.jump_strength = -18
         self.is_jumping = False
-        self.ground_y = WIN_HEIGHT - 65
+        self.ground_y = position[1]
         self.position = position
         self.sprite = 1
 
+        # Running Animation
         self.current_frame = 0
         self.frame_delay = 8
         self.frame_counter = 0
 
+        # Health and Damage
+        self.health = ENTITY_HEALTH[self.name]
+        self.damage = ENTITY_DAMAGE[self.name]
+        self.interacting = False
+
     def _update(self):
-        # Use to make the jump smooth
+        # Update height of player on jump
         self.velocity_y += self.gravity
         self.rect.y += self.velocity_y
 

@@ -1,12 +1,15 @@
 import random
-from random import choice
 
 import pygame.event
 from pygame import Surface
 
-from code.Const import EVENT_OBSTACLE, SPAWN_TIME
+from code.Const import EVENT_OBSTACLE, SPAWN_TIME, C_BRIGHT_RED, C_RED, C_WHITE, C_GREEN, C_LIGHT_BLUE, C_ORANGE, \
+    C_YELLOW, WIN_WIDTH
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
+from code.Player import Player
+from code.utils import screen_text
 
 
 class Level:
@@ -35,5 +38,17 @@ class Level:
                         choice = random.choice(('Obstacle0', 'Obstacle1', 'Obstacle2'))
                         self.entity_list.append(EntityFactory.get_entity(choice))
 
+                found_player = False
+                for ent in self.entity_list:
+                    if isinstance(ent, Player):
+                        found_player = True
 
+                if not found_player:
+                    return False
+
+            screen_text(self.window, 30, f'Health: {self.player.health}', C_ORANGE, (60, 30))
+            screen_text(self.window, 30, f'Points: {self.player.score}', C_YELLOW, (60, 60))
+
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(self.entity_list, self.player)
             pygame.display.flip()

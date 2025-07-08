@@ -22,6 +22,30 @@ ENTITY_SPEED = {
     'Obstacle2': 3,
 }
 
+ENTITY_HEALTH = {
+    'LevelBg0': 1,
+    'LevelBg1': 1,
+    'LevelBg2': 1,
+    'LevelBg3': 1,
+    'Player': 150,
+    'Obstacle0': 1,
+    'Obstacle1': 1,
+    'Obstacle2': 1
+}
+
+ENTITY_DAMAGE = {
+    'Player': 0,
+    'Obstacle0': 40,
+    'Obstacle1': 30,
+    'Obstacle2': 20
+}
+
+ENTITY_POINTS = {
+    'Obstacle0': 50,
+    'Obstacle1': 30,
+    'Obstacle2': 15
+}
+
 EVENT_OBSTACLE = pygame.USEREVENT + 1
 
 # G

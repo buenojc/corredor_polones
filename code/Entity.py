@@ -2,7 +2,7 @@ from abc import abstractmethod, ABC
 
 import pygame.image
 
-from code.Const import ENTITY_SPEED
+from code.Const import ENTITY_SPEED, ENTITY_HEALTH
 
 
 class Entity(ABC):
@@ -12,6 +12,7 @@ class Entity(ABC):
             # Player has animations, so this avoids sprites been loaded twice
             self.surf = pygame.image.load('../assets/' + name + '.png').convert_alpha()
             self.rect = self.surf.get_rect(left=position[0], top=position[1])
+            self.health = ENTITY_HEALTH[self.name]
 
     @abstractmethod
     def move(self):
